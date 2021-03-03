@@ -93,10 +93,9 @@
   allocation_pools: []
   gateway_ip: '129.10.5.1'
   mtu: 1500
-- name: ControlPlane
+- name: InternalApi
+  name_lower: internal_api
   vip: true
-  name_lower: ctlplane
   ip_subnet: '192.168.24.0/24'
-  allocation_pools: [{'start': '192.168.1.11', 'end': '192.168.1.200'}]
-  gateway_ip: '192.168.24.1'
+  allocation_pools: [{'start': '192.168.24.11', 'end': '192.168.24.200'}]
   mtu: 1500
