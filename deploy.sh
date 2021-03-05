@@ -14,6 +14,7 @@ deploy_args=(
 
 openstack overcloud deploy \
 	--disable-validations --deployed-server \
+	--overcloud-ssh-user stack \
 	--templates \
 	--ntp-server 0.centos.pool.ntp.org \
 	"${deploy_args[@]}" \

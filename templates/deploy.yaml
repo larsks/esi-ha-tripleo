@@ -26,9 +26,9 @@ parameter_defaults:
 
   # https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/deployed_server.html#deployed-server-with-config-download
   HostnameMap:
-    overcloud-controller-0: esi-controller-0.massopen.cloud
-    overcloud-controller-1: esi-controller-1.massopen.cloud
-    overcloud-controller-2: esi-controller-2.massopen.cloud
+    overcloud-controller-0: esi-controller-0
+    overcloud-controller-1: esi-controller-1
+    overcloud-controller-2: esi-controller-2
 
   # https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/deployed_server.html#network-configuration
   NeutronPublicInterface: eth0
