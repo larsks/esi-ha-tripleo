@@ -18,6 +18,7 @@ parameter_defaults:
 
   # https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/high_availability.html
   ControllerCount: 3
+  ComputeCount: 0
 
   NeutronNetworkType: vlan
   NeutronBridgeMappings: 'esi:br-ex'
