@@ -31,7 +31,7 @@ parameter_defaults:
     overcloud-controller-2: esi-controller-2
 
   # https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/deployed_server.html#network-configuration
-  NeutronPublicInterface: eth0
+  NeutronPublicInterface: eth1
   ControlPlaneDefaultRoute: 192.168.24.1
   EC2MetadataIp: 192.168.24.1
 
@@ -74,34 +74,3 @@ parameter_defaults:
       - 129.10.5.141
       - 129.10.5.142
       - 129.10.5.143
-
-  #https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/network_isolation.html#assigning-openstack-services-to-isolated-networks
-  ServiceNetMap:
-    NeutronTenantNetwork: internal_api
-    CeilometerApiNetwork: internal_api
-    MongoDbNetwork: internal_api
-    CinderApiNetwork: internal_api
-    CinderIscsiNetwork: internal_api
-    GlanceApiNetwork: internal_api
-    GlanceRegistryNetwork: internal_api
-    KeystoneAdminApiNetwork: internal_api
-    KeystonePublicApiNetwork: external
-    NeutronApiNetwork: internal_api
-    HeatApiNetwork: internal_api
-    NovaApiNetwork: internal_api
-    NovaMetadataNetwork: internal_api
-    NovaVncProxyNetwork: internal_api
-    SwiftMgmtNetwork: internal_api
-    SwiftProxyNetwork: internal_api
-    HorizonNetwork: internal_api
-    MemcachedNetwork: internal_api
-    RabbitMqNetwork: internal_api
-    RedisNetwork: internal_api
-    MysqlNetwork: internal_api
-    CephClusterNetwork: internal_api
-    # Define which network will be used for hostname resolution
-    ControllerHostnameResolveNetwork: internal_api
-    ComputeHostnameResolveNetwork: internal_api
-    BlockStorageHostnameResolveNetwork: internal_api
-    ObjectStorageHostnameResolveNetwork: internal_api
-    CephStorageHostnameResolveNetwork: internal_api

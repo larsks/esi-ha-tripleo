@@ -9,8 +9,13 @@ deploy_args=(
 	-e $SYSTEMPLATES/environments/deployed-server-environment.yaml
 	-e $PWD/container-prepare-parameter.yaml
 	-e $LOCALTEMPLATES/deploy.yaml
-	-n $LOCALTEMPLATES/network-data.yaml
+	-e $LOCALTEMPLATES/network-environment-overrides.yaml
+	-n $LOCALTEMPLATES/network_data.yaml
 )
+
+if ! [ -f container-prepare-parameter.yaml ]; then
+	openstack tripleo container image prepare default --local-push-destination --output-env-file container-prepare-parameter.yaml
+fi
 
 openstack overcloud deploy \
 	--disable-validations --deployed-server \

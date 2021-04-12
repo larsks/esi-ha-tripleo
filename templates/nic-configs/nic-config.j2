@@ -1,0 +1,27 @@
+---
+network_config:
+- type: interface
+  name: nic1
+  mtu: {{ ctlplane_mtu }}
+  dns_servers: {{ ctlplane_dns_nameservers }}
+  domain: {{ dns_search_domains }}
+  routes: {{ ctlplane_host_routes }}
+  use_dhcp: false
+  addresses:
+  - ip_netmask: {{ ctlplane_ip }}/{{ ctlplane_subnet_cidr }}
+- type: ovs_bridge
+  name: {{ neutron_physical_bridge_name }}
+  mtu: {{ lookup('vars', networks_lower['External'] ~ '_mtu') }}
+  dns_servers: {{ ctlplane_dns_nameservers }}
+  use_dhcp: false
+{% if 'External' in role_networks %}
+  addresses:
+  - ip_netmask:
+      {{ lookup('vars', networks_lower['External'] ~ '_ip') }}/{{ lookup('vars', networks_lower['External'] ~ '_cidr') }}
+  routes: {{ lookup('vars', networks_lower['External'] ~ '_host_routes') }}
+{% endif %}
+  members:
+  - type: interface
+    name: nic2
+    mtu: {{ lookup('vars', networks_lower['External'] ~ '_mtu') }}
+    primary: true
