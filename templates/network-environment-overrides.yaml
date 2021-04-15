@@ -15,4 +15,4 @@
 resource_registry:
   OS::TripleO::Controller::Net::SoftwareConfig: OS::Heat::None
 parameter_defaults:
-  ControllerNetworkConfigTemplate: 'templates/nic-configs/nic-config.j2'
+  ControllerNetworkConfigTemplate: '/home/stack/templates/nic-configs/nic-config.j2'
