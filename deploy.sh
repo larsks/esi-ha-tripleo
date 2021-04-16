@@ -10,13 +10,20 @@ deploy_args=(
 	-e $SYSTEMPLATES/environments/network-environment.yaml
 	-e $SYSTEMPLATES/environments/deployed-server-environment.yaml
 
-	# enable ironic
+	# Enable ironic
 	-e $SYSTEMPLATES/environments/services/ironic.yaml
 	-e $SYSTEMPLATES/environments/services/ironic-inspector.yaml
 
 	-e $PWD/container-prepare-parameter.yaml
 	-e $LOCALTEMPLATES/deploy.yaml
 	-e $LOCALTEMPLATES/network-environment-overrides.yaml
+
+	# Enable SSL. This file must set SSLKey, SSLCertificate (and possibly
+	# SSLIntermediateCertificate)
+	-e $SYSTEMPLATES/environments/ssl/enable-tls.yaml
+	-e $SYSTEMPLATES/environments/ssl/tls-endpoints-public-dns.yaml
+	-e $LOCALTEMPLATES/ssl.yaml
+
 	-n $LOCALTEMPLATES/network_data.yaml
 	-r $LOCALTEMPLATES/roles_data.yaml
 )
