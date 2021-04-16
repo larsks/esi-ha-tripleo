@@ -62,3 +62,15 @@ parameter_defaults:
       - 129.10.5.141
       - 129.10.5.142
       - 129.10.5.143
+
+  # https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/baremetal_overcloud.html
+  IronicEnabledHardwareTypes:
+      - ipmi
+      - redfish
+  IronicEnabledPowerInterfaces:
+      - ipmitool
+      - redfish
+  IronicEnabledManagementInterfaces:
+      - ipmitool
+      - redfish
+  IronicCleaningDiskErase: metadata

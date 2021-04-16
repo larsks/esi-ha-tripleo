@@ -9,6 +9,11 @@ deploy_args=(
 	-e $SYSTEMPLATES/environments/network-isolation.yaml
 	-e $SYSTEMPLATES/environments/network-environment.yaml
 	-e $SYSTEMPLATES/environments/deployed-server-environment.yaml
+
+	# enable ironic
+	-e $SYSTEMPLATES/environments/services/ironic.yaml
+	-e $SYSTEMPLATES/environments/services/ironic-inspector.yaml
+
 	-e $PWD/container-prepare-parameter.yaml
 	-e $LOCALTEMPLATES/deploy.yaml
 	-e $LOCALTEMPLATES/network-environment-overrides.yaml
