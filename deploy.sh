@@ -3,6 +3,8 @@
 SYSTEMPLATES=/usr/share/openstack-tripleo-heat-templates
 LOCALTEMPLATES=$PWD/templates
 
+set -ue
+
 deploy_args=(
 	-e $SYSTEMPLATES/environments/network-isolation.yaml
 	-e $SYSTEMPLATES/environments/network-environment.yaml
@@ -11,6 +13,7 @@ deploy_args=(
 	-e $LOCALTEMPLATES/deploy.yaml
 	-e $LOCALTEMPLATES/network-environment-overrides.yaml
 	-n $LOCALTEMPLATES/network_data.yaml
+	-r $LOCALTEMPLATES/roles_data.yaml
 )
 
 if ! [ -f container-prepare-parameter.yaml ]; then
