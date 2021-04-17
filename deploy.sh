@@ -14,7 +14,7 @@ deploy_args=(
 	-e $SYSTEMPLATES/environments/services/ironic.yaml
 	-e $SYSTEMPLATES/environments/services/ironic-inspector.yaml
 
-	-e $PWD/container-prepare-parameter.yaml
+	-e $LOCALTEMPLATES/container-prepare-parameter.yaml
 	-e $LOCALTEMPLATES/deploy.yaml
 	-e $LOCALTEMPLATES/network-environment-overrides.yaml
 
@@ -28,8 +28,9 @@ deploy_args=(
 	-r $LOCALTEMPLATES/roles_data.yaml
 )
 
-if ! [ -f container-prepare-parameter.yaml ]; then
-	openstack tripleo container image prepare default --local-push-destination --output-env-file container-prepare-parameter.yaml
+if ! [ -f templates/container-prepare-parameter.yaml ]; then
+	openstack tripleo container image prepare default --local-push-destination \
+		--output-env-file templates/container-prepare-parameter.yaml > /dev/null
 fi
 
 openstack overcloud deploy \
